@@ -17,7 +17,8 @@ rusty.
 Although I’m mainly focused on making it work and finding a solution,
 I’ll probably come back once or twice to refactor the more
 interesting/challenging puzzles, or to try a different approach with
-performance benchmarks.
+performance benchmarks. No final answers are explicitly stated in the
+code.
 
 ## Current Status
 
