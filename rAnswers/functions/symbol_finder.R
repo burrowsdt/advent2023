@@ -1,4 +1,4 @@
-#symbol_finder
+#symbol_finder -- ugly ugly ugly!
 symbol_finder <- function(starting_coord,
          ending_coord,
          current_num_vector,
@@ -39,19 +39,34 @@ symbol_finder <- function(starting_coord,
   # Take care of left/right independently
   print(paste("left: ", grid[[starting_row]][[range[1]]]))
   print(paste("right: ", grid[[starting_row]][[range[length(range)]]]))
+  
   if (border_case[2] == "left") {
     if (grid[[starting_row]][[range[length(range)]]] %in% symbols) {
       print("symbol found!")
+      if (grid[[starting_row]][[range[length(range)]]] == "*"){ #added for part 2 - add coordinates for asterisk and part number to tibble
+        parts_and_gears <<- add_row(parts_and_gears, part_number = as.numeric(paste(current_num_vector, collapse = "")), gear_coordinate = paste(c(starting_row, range[length(range)]), collapse = ","))
+      }
       symbol_found <- TRUE
     }
   } else if (border_case[2] == "right") {
     if (grid[[starting_row]][[range[1]]] %in% symbols) {
       print("symbol found!")
+      if (grid[[starting_row]][[range[1]]] == "*"){ #added for part 2 - add coordinates for asterisk and part number to tibble
+        parts_and_gears <<- add_row(parts_and_gears, part_number = as.numeric(paste(current_num_vector, collapse = "")), gear_coordinate = paste(c(starting_row, range[1]), collapse=","))
+      }
       symbol_found <- TRUE
     }
   } else if (grid[[starting_row]][[range[1]]] %in% symbols |
              grid[[starting_row]][[range[length(range)]]] %in% symbols) {
+    
     print("symbol found!")
+    if (grid[[starting_row]][[range[1]]] == "*"){ #added for part 2 - add coordinates for asterisk and part number to tibble
+      parts_and_gears <<- add_row(parts_and_gears, part_number = as.numeric(paste(current_num_vector, collapse = "")), gear_coordinate = paste(c(starting_row, range[1]), collapse=","))
+    }
+    if (grid[[starting_row]][[range[length(range)]]] == "*"){ #added for part 2 - add coordinates for asterisk and part number to tibble
+      parts_and_gears <<- add_row(parts_and_gears, part_number = as.numeric(paste(current_num_vector, collapse = "")), gear_coordinate = paste(c(starting_row, range[length(range)]), collapse=","))
+    }
+    
     symbol_found <- TRUE
   }
   
@@ -71,6 +86,9 @@ symbol_finder <- function(starting_coord,
         print(grid[[starting_row + 1]][[coord]])
         if (grid[[starting_row + 1]][[coord]] %in% symbols == TRUE) {
           print("symbol found!")
+          if (grid[[starting_row + 1]][[coord]] == "*"){ #added for part 2 - add coordinates for asterisk and part number to tibble
+            parts_and_gears <<- add_row(parts_and_gears, part_number = as.numeric(paste(current_num_vector, collapse = "")), gear_coordinate = paste(c(starting_row + 1, coord), collapse=","))
+          }
           symbol_found <- TRUE
         }
       }
@@ -80,6 +98,9 @@ symbol_finder <- function(starting_coord,
         print(grid[[starting_row - 1]][[coord]])
         if (grid[[starting_row - 1]][[coord]] %in% symbols == TRUE) {
           print("symbol found!")
+          if (grid[[starting_row - 1]][[coord]] == "*"){ #added for part 2 - add coordinates for asterisk and part number to tibble
+            parts_and_gears <<- add_row(parts_and_gears, part_number = as.numeric(paste(current_num_vector, collapse = "")), gear_coordinate = paste(c(starting_row - 1, coord), collapse=","))
+          }
           symbol_found <- TRUE
         }
       }

@@ -1,10 +1,19 @@
-# Day 3 - Gear Ratios - see notes on part 2, but all of this could be deeply refactored and cleaned up -- ugly ugly ugly
+# Day 3 - Part 2 This one has me a bit stumped. The *easiest* approach, if I
+# want to keep my very hacky solution for Part 1, might be to add something that
+# tracks the relevant gear associated with each part #. Look for those that share gears; do the calcs.
+
+# This code is atrocious and includes a lot of repetition and a bit of brute
+# force. But if I refactor (and I think I'd like to, for the experience) -- I'd
+# probably go back and use a df/tibble for the whole thing, plus add padding to
+# get rid of edge cases. A lot of this ugliness just stems from repetition.
+
+# For ease -- what if we use a tibble.
 
 library(tidyverse)
 
 example_input <- readLines("~/Documents/repos/advent2023/input/day3_example_input.txt")
 input <- readLines("~/Documents/repos/advent2023/input/day3_input.txt")
-source("./working/symbol_finder.R")
+source("~/Documents/repos/advent2023/rAnswers/functions/symbol_finder.R")
 
 grid <- list()
 line_number_tracker = 1
@@ -12,6 +21,10 @@ digits <- c("0", "1", "2", "3", "4", "5", "6", "7", "8", "9")
 symbols <- c("!", "@", "#", "$", "%", "^", "&", "*", "\\", "/", "~", "`", ",", "+", "-", "_", "=")
 parts_sum <- 0
 parts_numbers <- c()
+parts_and_gears <- tibble(
+  "part_number" = numeric(),
+  "gear_coordinate" = character()
+)
 
 # sink("./output_log.txt")
 
@@ -29,6 +42,7 @@ current_num_vector <- c()
 starting_coord <- c()
 ending_coord <- c()
 
+
 for (row in grid){
   col_num <- 1
   for (char in row) {
@@ -44,17 +58,17 @@ for (row in grid){
           next
         }
       }
-        ending_coord <- c(row_num, col_num)
-        print(paste("row ", row_num, "has a number from col", starting_coord[2], "to ", col_num, " the number is ", paste(current_num_vector, collapse = "")))
-        
-        #do whatever we have to do with current_num
-        
-        parts_sum <- symbol_finder(starting_coord, ending_coord, current_num_vector, parts_sum, parts_numbers)
-        
-        #reset some variables
-        starting_coord <- c()
-        ending_coord <- c()
-        current_num_vector <- c()
+      ending_coord <- c(row_num, col_num)
+      print(paste("row ", row_num, "has a number from col", starting_coord[2], "to ", col_num, " the number is ", paste(current_num_vector, collapse = "")))
+      
+      #do whatever we have to do with current_num
+      
+      parts_sum <- symbol_finder(starting_coord, ending_coord, current_num_vector, parts_sum, parts_numbers)
+      
+      #reset some variables
+      starting_coord <- c()
+      ending_coord <- c()
+      current_num_vector <- c()
       
     } else if (char %in% symbols) {
       print("i'm a symbol")
@@ -68,14 +82,12 @@ for (row in grid){
 
 print(parts_sum)
 
+# for part 2 - table to get products of shared gears
+powers <- parts_and_gears %>% 
+  group_by(gear_coordinate) %>% 
+  filter(n() > 1) %>% 
+  summarise(power = prod(part_number))
+
+print(sum(powers$power)) # final answer for part 2
+
 # sink()
-
-
-
-
-
-
-
-
-
-
