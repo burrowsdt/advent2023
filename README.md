@@ -26,7 +26,11 @@ code.
 |-------|:-------------:|
 | Day 1 | :star: :star: |
 | Day 2 | :star: :star: |
+| Day 3 | :star: :star: |
 
 Caveats and H/Ts: \* Day 1 -
 [ursulams](https://gist.github.com/ursulams/9e79aa2f478c83da14e78751139f03c2)
-for their approach to the mash-ups
+for their approach to the mash-ups \* Day 3 - Had to do some serious
+troubleshooting and used someone’s code to get the right answer (whose?
+can’t remember!) for part 1. Realized it was a super dumb conditional
+fumble.
