@@ -1,29 +1,25 @@
-# I'm interested in trying this without actually creating any permanent objects
+# Day 5 - If You Give a Seed a Fertilizer
+# DON'T RUN THIS (or at least be prepared for it to run for a while)
+# I think to speed this up, read the lines in and make a df for each section -- but don't expand
+# Sort, then iterate over the columns *once*
+
 
 library(tidyverse)
 
-# input <- readLines("~/Documents/repos/advent2023/input/day5_example_input.txt")
-input <- readLines("~/Documents/repos/advent2023/input/day5_input.txt")
-source("~/Documents/repos/advent2023/rAnswers/functions/seed_to_location.R")
+# input <- readLines("~/Repos/advent2023/input/day5_example_input.txt")
+input <- readLines("~/Repos/advent2023/input/day5_input.txt")
+source("~/Repos/advent2023/rAnswers/functions/seed_to_location.R")
 
 # Get seeds as vector
 seeds <- str_extract_all(input[1], "\\d+") %>%
   unlist() %>% 
   as.numeric()
 
-# Initialize df
-map_names <- c("seed-to-soil", "soil-to-fertilizer", "fertilizer-to-water","water-to-light","light-to-temperature","temperature-to-humidity")
-all_maps_df <- tibble(
-  "map_type" = character(),
-  "source" = numeric(),
-  "destination" = numeric(),
-)
-
 conversion_vector <- c()
 current_seeds <- sort(seeds)
 
 # Parse input and populate df
-for (line in input[3:35]) {
+for (line in input[3:length(input)]) {
   # create all_maps_df from input
   gc()
   if (str_starts(line, "\\D")) {
@@ -34,10 +30,10 @@ for (line in input[3:35]) {
       conversion_vector <-
         append(conversion_vector, current_seeds) # populate unfound items with duplicates
       current_seeds <-
-        conversion_vector # new "current_seeds" for the next section of data
+        sort(conversion_vector) # new "current_seeds" for the next section of data
       conversion_vector <- c()
     } else {
-      current_seeds <- conversion_vector
+      current_seeds <- sort(conversion_vector)
       conversion_vector <- c()
     }
   } else {
@@ -66,7 +62,7 @@ for (line in input[3:35]) {
               select(destination) %>%
               as.numeric()
           )
-        current_seeds <- current_seeds[! current_seeds %in% seed]
+        current_seeds <- sort(current_seeds[! current_seeds %in% seed])
         
       } else if (seed > source + range){
         print(paste(c("limit is ", seed)))
@@ -76,12 +72,6 @@ for (line in input[3:35]) {
         next
         }
       
-      
-      
-      # if (seed %in% temp_tibble$source){
-      #         loc <- which(temp_tibble$source == seed)
-      # conversion_vector <- append(conversion_vector, temp_tibble$destination[loc])
-      # current_seeds <- current_seeds[! current_seeds %in% seed]
     }
     rm(temp_tibble)
     }
