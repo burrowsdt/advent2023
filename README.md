@@ -22,12 +22,13 @@ code.
 
 ## Current Status
 
-| Day   |  Completion   |
-|-------|:-------------:|
-| Day 1 | :star: :star: |
-| Day 2 | :star: :star: |
-| Day 3 | :star: :star: |
-| Day 4 | :star: :star: |
+| Day   |    Completion     |
+|-------|:-----------------:|
+| Day 1 |   :star: :star:   |
+| Day 2 |   :star: :star:   |
+| Day 3 |   :star: :star:   |
+| Day 4 |   :star: :star:   |
+| Day 5 | :star: :hot_face: |
 
 Caveats and H/Ts: \* Day 1 -
 [ursulams](https://gist.github.com/ursulams/9e79aa2f478c83da14e78751139f03c2)
@@ -35,4 +36,6 @@ for their approach to the mash-ups \* Day 3 - Had to do some serious
 troubleshooting and used someone’s code to get the right answer (whose?
 can’t remember!) for part 1, in order to work backward. Realized it was
 a super dumb fumble in my long chains of conditionals — one more reason
-to clean this up at some point!
+to clean this up at some point! \* Day 5 - Part 1 was an eventual
+success but part 2 really threw me. Definitely plan to come back to
+finish part 2 but needed to move on…
