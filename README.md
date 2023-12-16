@@ -29,6 +29,7 @@ code.
 | Day 3 |   :star: :star:   |
 | Day 4 |   :star: :star:   |
 | Day 5 | :star: :hot_face: |
+| Day 6 |   :star: :star:   |
 
 Caveats and H/Ts: \* Day 1 -
 [ursulams](https://gist.github.com/ursulams/9e79aa2f478c83da14e78751139f03c2)
