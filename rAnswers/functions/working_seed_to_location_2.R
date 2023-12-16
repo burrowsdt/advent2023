@@ -1,4 +1,4 @@
-seed_to_location <- function(seed, map_names, all_maps_df) {
+seed_to_location_2<- function(starting_seed_nums, seed_range, map_names, all_maps_df) {
   conversion_steps <- vector(mode = "numeric", length = 7)
   conversion_steps[1] <- seed
   
@@ -8,10 +8,22 @@ seed_to_location <- function(seed, map_names, all_maps_df) {
     
     current_chart <- filter(all_maps_df, map_type == map_name)
     
-    
     # loop iterates through current chart type
     for (i in seq(1:length(current_chart$source))) {
+      
       current_loc <- current_chart$source[i]
+      current_max <- current_loc + (current_chart$range[i] - 1)
+      
+      # for (x in seq_along(starting_seed_nums)){
+      #   seed_low <- starting_seed_nums[x]
+      #   seed_high <- seed_low + (seed_range[x] - 1)
+      #   if (seed_low < current_loc & seed_high > current_max){
+      #     
+      #   }
+      #   
+      # }
+      # 
+      
       #if seed is less than next source value on map...
       if (seed < current_loc) {
         # then add to conversion_steps
