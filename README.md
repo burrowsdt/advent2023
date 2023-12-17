@@ -29,6 +29,7 @@ code.
 | Day 4 |   :star: :star:   |
 | Day 5 | :star: :hot_face: |
 | Day 6 |   :star: :star:   |
+| Day 7 |   :star: :star:   |
 
 Caveats and H/Ts:
 
