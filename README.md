@@ -30,6 +30,7 @@ code.
 | Day 5 | :star: :hot_face: |
 | Day 6 |   :star: :star:   |
 | Day 7 |   :star: :star:   |
+| Day 8 | :star: :hot_face: |
 
 Caveats and H/Ts:
 
@@ -45,3 +46,8 @@ Caveats and H/Ts:
 
 - Day 5 - Part 1 was an eventual success but part 2 really threw me.
   Definitely plan to come back to finish part 2 but needed to move on…
+
+- Day 8 - Similar to day 5. Part 1 was pretty straight-forward; part 2,
+  just as soon as I started to wrap my head around it, evaded me. BUT I
+  learned that R has an `lcm()` function, which I would assume it did
+  but never had good reason to try!
