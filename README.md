@@ -31,10 +31,11 @@ code.
 | Day 6 |   :star: :star:   |
 | Day 7 |   :star: :star:   |
 | Day 8 | :star: :hot_face: |
+| Day 9 |   :star: :star:   |
 
-Caveats and H/Ts:
+Caveats, Comments, and H/Ts:
 
-- Day 1 -
+- Day 1 - H/T to
   [ursulams](https://gist.github.com/ursulams/9e79aa2f478c83da14e78751139f03c2)
   for their approach to the mash-ups
 
@@ -51,3 +52,6 @@ Caveats and H/Ts:
   just as soon as I started to wrap my head around it, evaded me. BUT I
   learned that R has an `lcm()` function, which I would assume it did
   but never had good reason to try!
+
+- Day 9 - How on earth was this one so easy? Or did my skills magically
+  grow overnight? (No, it was just easy.)
