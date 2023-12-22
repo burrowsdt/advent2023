@@ -63,6 +63,7 @@ if (grid[[s_coord_x-1]][[s_coord_y]] %in% c("|", "F", "7")){
   viable[[length(viable)+1]] <- c(s_coord_x-1, s_coord_y)
 } 
 
+# for running through both nodes, use the following
 
 for (i in seq_along(viable)){
   found_s <- FALSE
@@ -100,4 +101,96 @@ if (steps_per_route[1] == steps_per_route[2]){
   solution <- steps_per_route[1]/2
 }
 
-print(solution)
+print(solution) # solution here -- correct
+
+# rerun but track path by adding to pre-allocated vector - only need one route
+found_s <- FALSE
+previous <- s_coord
+present <- viable[[1]] %>% unlist()
+steps <- 1
+path <- vector(mode="list", length = 13684)
+path[[steps]] <- present
+
+while (!isTRUE(found_s)){
+  
+  print(paste("Currently on ", grid[[present[1]]][[present[2]]]))
+  
+  from <- determine_from(present, previous)
+  to <- determine_to(from, present)  
+  
+  previous <- present
+  
+  present <- find_next(to, present)
+  
+  steps <- steps + 1
+  
+  path[[steps]] <- present
+  
+  if (grid[[present[1]]][[present[2]]] == "S"){
+    print("Back home!")
+    print(present)
+    print(steps)
+    
+    steps_per_route <- append(steps_per_route, steps)
+    
+    found_s <- TRUE
+    
+  } 
+}
+
+##### Part 2
+# So this is NOT my original idea, but I was really struggling to even begin to
+# understand this problem. I thought --- geez, there's got to be a way to do
+# this by thinking about the area of the loop --- but how to calculate that? 
+
+# In looking up possible approaches, I found one shared by u/KeroTheFrog on
+# reddit that introduced me to two new ideas: Shoelace formula for calculating
+# the area of the loop, and Pick's Theorem --- for something, lol. I translated
+# their code from Python to R below, in conjunction with my approach to part 1.
+# I had to get gimmicky to complete the loop the "right" way.
+
+# For that original Reddit post see:
+# https://www.reddit.com/r/adventofcode/comments/18evyu9/comment/kcso138/
+
+# So this is not the most "honest" win, but I count this as a personal win
+# because not only did I learn a bit about geometry, I also gave in and found an
+# R equivalent for destructuring assignment -- the zeallot package
+
+library(zeallot)
+
+sum = 0
+
+# KeroTheFrog's original code in python
+#
+# for i in range(len(path)):
+#   n_1 = path[i]
+# n_2 = path[(i+1)%len(path)]
+# x_1, y_1 = n_1
+# x_2, y_2 = n_2
+# sum += x_1 * y_2 - y_1 * x_2
+# 
+# area = abs(sum/2)
+# 
+# print(area-len(path)/2+1)
+# inc <- length(path)-1
+
+for (j in seq_along(path)){
+  n_1 <- path[[j]]
+  if (j == length(path)){
+    n_2 <- path[[1]]
+  } else {
+    n_2 <- path[[j+1]]
+  }
+  
+  c(x_1, y_1) %<-% n_1
+  c(x_2, y_2) %<-% n_2
+  sum <- sum + x_1 * y_2 - y_1 * x_2
+}
+
+area = abs(sum/2)
+
+solution <- area-length(path)/2+1
+
+print(solution) #Correct
+
+
