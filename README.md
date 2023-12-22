@@ -21,17 +21,18 @@ code.
 
 ## Current Status
 
-| Day   |    Completion     |
-|-------|:-----------------:|
-| Day 1 |   :star: :star:   |
-| Day 2 |   :star: :star:   |
-| Day 3 |   :star: :star:   |
-| Day 4 |   :star: :star:   |
-| Day 5 | :star: :hot_face: |
-| Day 6 |   :star: :star:   |
-| Day 7 |   :star: :star:   |
-| Day 8 | :star: :hot_face: |
-| Day 9 |   :star: :star:   |
+| Day    |    Completion     |
+|--------|:-----------------:|
+| Day 1  |   :star: :star:   |
+| Day 2  |   :star: :star:   |
+| Day 3  |   :star: :star:   |
+| Day 4  |   :star: :star:   |
+| Day 5  | :star: :hot_face: |
+| Day 6  |   :star: :star:   |
+| Day 7  |   :star: :star:   |
+| Day 8  | :star: :hot_face: |
+| Day 9  |   :star: :star:   |
+| Day 10 | :star: :thinking: |
 
 Caveats, Comments, and H/Ts:
 
@@ -55,3 +56,8 @@ Caveats, Comments, and H/Ts:
 
 - Day 9 - How on earth was this one so easy? Or did my skills magically
   grow overnight? (No, it was just easy.)
+
+- Day 10 - Dare I admit that I wasted a lot of time with the *right*
+  solution but written recursively, and consistent running into a depth
+  recursion error? Dare I admit how long it took me to just rewrite it
+  as a simple iteration? Ugh. Lessons learned.
