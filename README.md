@@ -57,7 +57,22 @@ Caveats, Comments, and H/Ts:
 - Day 9 - How on earth was this one so easy? Or did my skills magically
   grow overnight? (No, it was just easy.)
 
-- Day 10 - Dare I admit that I wasted a lot of time with the *right*
-  solution but written recursively, and consistent running into a depth
-  recursion error? Dare I admit how long it took me to just rewrite it
-  as a simple iteration? Ugh. Lessons learned.
+- Day 10 - Part 1. Dare I admit that I wasted a lot of time with the
+  *right* solution but written recursively, and consistent running into
+  a depth recursion error? Dare I admit how long it took me to just
+  rewrite it as a simple iteration? Ugh. Lessons learned.
+
+- Day 10 - Part 2. Struggled to translate my ideas for how to approach
+  this into action. Pilfered code from a post by
+  [u/KeroTheFrog](https://www.reddit.com/r/adventofcode/comments/18evyu9/comment/kcso138/)
+  and translated to R; it taught me some geometry (the [shoelace
+  formula](https://en.wikipedia.org/wiki/Shoelace_formula)) so I am
+  counting it as a win for the learning rather than an honest
+  achievement, lol. Also, learned about the `zeallot` package for
+  destructuring assignment in R – score!
+
+  - Also, shout out to [lauraschild’s
+    solution](https://github.com/lauraschild/AOC2023/blob/main/day10.R)
+    in
+    <img src="images/R_logo.png" alt="R symbol" width="25" height="25"/>
+    that graphed the final result for Part 2 — super cool!
