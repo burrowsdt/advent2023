@@ -33,6 +33,7 @@ code.
 | Day 8  | :star: :hot_face: |
 | Day 9  |   :star: :star:   |
 | Day 10 | :star: :thinking: |
+| Day 11 | :star: :thinking: |
 
 Caveats, Comments, and H/Ts:
 
