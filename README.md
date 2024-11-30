@@ -35,7 +35,7 @@ code.
 | Day 10 | :star: :thinking: |
 | Day 11 | :star: :thinking: |
 
-Caveats, Comments, and H/Ts:
+## Caveats, Comments, and H/Ts:
 
 - Day 1 - H/T to
   [ursulams](https://gist.github.com/ursulams/9e79aa2f478c83da14e78751139f03c2)
